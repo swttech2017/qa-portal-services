@@ -1,4 +1,4 @@
-package com.qa.portal.core.config;
+package com.qa.portal.common.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.KeycloakDeployment;
@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import static com.qa.portal.core.CoreConstants.KEYCLOAK_CONFIG_FILE_PROP;
-
-//TODO - This is to be moved to the api-common project
+import static com.qa.portal.common.CommonConstants.KEYCLOAK_CONFIG_FILE_PROP;
 
 @Component
 public class QaServicesKeycloakConfigResolver implements KeycloakConfigResolver {

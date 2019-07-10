@@ -15,15 +15,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>parent</name>
-	<description>Parent project for BigNash</description>
+	<description>Parent project for QA Portal</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	
 	<modules>
-		<module>core-api</module>
 		<module>api-common</module>
+		<module>core-api</module>
 	</modules>
 
 </project>

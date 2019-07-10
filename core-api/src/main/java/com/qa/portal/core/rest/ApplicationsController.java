@@ -1,6 +1,6 @@
 package com.qa.portal.core.rest;
 
-import com.qa.portal.core.config.QaSecurityContext;
+import com.qa.portal.common.security.QaSecurityContext;
 import com.qa.portal.core.dto.DepartmentApplicationsDto;
 import com.qa.portal.core.service.ApplicationService;
 import org.slf4j.Logger;

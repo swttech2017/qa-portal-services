@@ -1,10 +1,8 @@
-package com.qa.portal.core.service.mapper;
+package com.qa.portal.common.util.mapper;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-//TODO - This is to be moved to the api-common project
 
 @Component
 public class BaseMapper {

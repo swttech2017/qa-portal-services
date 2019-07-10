@@ -1,5 +1,6 @@
 package com.qa.portal.core.service.mapper;
 
+import com.qa.portal.common.util.mapper.BaseMapper;
 import com.qa.portal.core.dto.ApplicationDto;
 import com.qa.portal.core.dto.DepartmentApplicationDto;
 import com.qa.portal.core.dto.DepartmentApplicationsDto;
