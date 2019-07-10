@@ -11,7 +11,6 @@ import static com.qa.portal.common.CommonConstants.DOZER_CONFIG_FILE;
 @Configuration
 public class CoreConfig {
 
-
         @Bean
         public DozerBeanMapper dozerBeanMapper() {
             DozerBeanMapper mapper = new DozerBeanMapper();

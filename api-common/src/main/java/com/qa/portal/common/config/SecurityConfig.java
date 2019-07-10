@@ -30,10 +30,6 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         return new SimpleAuthorityMapper();
     }
 
-
-    /**
-     * Defines the session authentication strategy.
-     */
     @Bean
     @Override
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
