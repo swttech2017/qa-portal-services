@@ -11,7 +11,7 @@ https://github.com/swttech2017/qa-portal-infra/blob/master/README.md
 
 a) Clone the qa-portal-services repo using command
 
-https://github.com/swttech2017/qa-portal-services.git
+git clone https://github.com/swttech2017/qa-portal-services.git
 
 b) From the base folder build with maven
 
