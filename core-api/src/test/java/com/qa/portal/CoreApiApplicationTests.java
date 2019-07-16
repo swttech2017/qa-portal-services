@@ -1,4 +1,4 @@
-package com.qa.portal.core;
+package com.qa.portal;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

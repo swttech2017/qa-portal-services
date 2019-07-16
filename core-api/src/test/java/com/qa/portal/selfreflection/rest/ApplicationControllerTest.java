@@ -1,7 +1,7 @@
-package com.qa.portal.core.rest;
+package com.qa.portal.selfreflection.rest;
 
 //import java.util.List;
-//import com.qa.portal.core.CoreApiApplication;
+//import com.qa.portal.CoreApiApplication;
 //import com.qa.portal.core.dto.DepartmentApplicationsDto;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
