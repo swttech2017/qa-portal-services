@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+      http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <custom-converters> <!-- these are always bi-directional -->
+            <converter type="com.qa.portal.common.util.mapper.converters.SqlTimestampToInstantConverter">
+                <class-a>java.sql.Timestamp</class-a>
+                <class-b>java.time.Instant</class-b>
+            </converter>
+        </custom-converters>
+    </configuration>
+
+    <mapping>
+        <class-a>com.qa.portal.common.dto.QaBaseDto</class-a>
+        <class-b>com.qa.portal.common.persistence.entity.QaBaseEntity</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>com.qa.portal.common.dto.QaUserDto</class-a>
+        <class-b>com.qa.portal.common.persistence.entity.QaUserEntity</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfReflectionReviewEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfReflectionReviewDto</class-b>
+        <field-exclude>
+            <a>qaUserSelfReflectionForm</a>
+            <b>qaUserSelfReflectionForm</b>
+        </field-exclude>
+    </mapping>
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfReflectionStatusEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfReflectionStatusDto</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfRatingQuestionEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfRatingQuestionDto</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfRatingEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfRatingDto</class-b>
+        <field-exclude>
+            <a>qaUserSelfReflectionForm</a>
+            <b>qaUserSelfReflectionForm</b>
+        </field-exclude>
+    </mapping>
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfReflectionFormStatusEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfReflectionFormStatusDto</class-b>
+        <field-exclude>
+            <a>qaUserSelfReflectionForm</a>
+            <b>qaUserSelfReflectionForm</b>
+        </field-exclude>
+    </mapping>
+    <mapping>
+        <class-a>com.qa.portal.selfreflection.persistence.entity.SelfReflectionFormEntity</class-a>
+        <class-b>com.qa.portal.selfreflection.dto.SelfReflectionFormDto</class-b>
+    </mapping>
+</mappings>
