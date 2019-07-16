@@ -14,6 +14,10 @@ public class QaSecurityContext {
 
     private final Logger LOGGER = LoggerFactory.getLogger(QaSecurityContext.class);
 
+    public String getUserName() {
+        return getAccessToken().getPreferredUsername();
+    }
+
     public String getName() {
         return getAccessToken().getName();
     }
