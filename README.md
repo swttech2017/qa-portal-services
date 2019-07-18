@@ -1,8 +1,8 @@
 [TOC]
 
-#### QA Portal Services
+# QA Portal Services
 
-##### Projects
+## Projects
 
 The projects in this repository provide the business logic, service integration and persistence capabilities of the QA Portal application. This repository is split into the following
 
@@ -12,9 +12,9 @@ b) A number of Spring Boot micro-service projects that make use of the api-commo
 
 
 
-##### Developer Guide
+## Developer Guide
 
-###### Common Library
+### Common Library
 
 The api-common project contains the code that is likely to be used by all the QA Portal micro-service projects, providing the following common functionality
 
@@ -82,7 +82,7 @@ A DozerBeanMapper is instantiated in the Spring Boot configuration class com.qa.
 
 
 
-###### Spring Boot micro-service projects
+### Spring Boot micro-service projects
 
 core-api and self-reflection-api are Qa Portal Spring Boot micro-service projects. These have a standard structure that all Spring Boot projects should adhere to 
 
@@ -106,24 +106,24 @@ c) Each Spring Boot micro-service project must have a dependency in their pom.xm
 
 
 
-###### Adding a new Spring Boot Project
+### Adding a new Spring Boot Project
 
 
 
-###### Developing a new Spring Boot micro-service
+### Developing a new Spring Boot micro-service
 
 
 
 
 
-##### Building and Running Services
+### Building and Running Services
 
-###### Pre-Requisites
+#### Pre-Requisites
 
 a) A local keycloak instance and Postgres DB has been installed and configured. See instructions in 
 https://github.com/swttech2017/qa-portal-infra/blob/master/README.md
 
-###### Build and Run Core Services
+#### Build and Run Core Services
 
 a) Clone the qa-portal-services repo using command
 
