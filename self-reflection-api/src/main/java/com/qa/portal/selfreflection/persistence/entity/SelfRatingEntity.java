@@ -12,7 +12,7 @@ public class SelfRatingEntity extends QaBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_rating_sequence")
-    @SequenceGenerator(name = "self_rating_sequence", sequenceName = "self_rating_sequence")
+    @SequenceGenerator(name = "self_rating_sequence", sequenceName = "training.self_rating_sequence")
     private Integer id;
 
     @ManyToOne

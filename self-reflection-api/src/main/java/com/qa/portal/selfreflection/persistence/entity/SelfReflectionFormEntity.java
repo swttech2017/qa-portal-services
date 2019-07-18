@@ -14,7 +14,7 @@ public class SelfReflectionFormEntity extends QaBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "qa_user_self_reflection_form_sequence")
-    @SequenceGenerator(name = "qa_user_self_reflection_form_sequence", sequenceName = "qa_user_self_reflection_form_sequence")
+    @SequenceGenerator(name = "qa_user_self_reflection_form_sequence", sequenceName = "training.qa_user_self_reflection_form_sequence")
     private Integer id;
 
     @ManyToOne()
@@ -44,6 +44,9 @@ public class SelfReflectionFormEntity extends QaBaseEntity {
 
     @Column(name="week_commencing")
     private Date weekCommencing;
+
+    @Transient
+    private String currentStatus;
 
     public Integer getId() {
         return id;
@@ -102,6 +105,9 @@ public class SelfReflectionFormEntity extends QaBaseEntity {
     }
 
     public List<SelfReflectionFormStatusEntity> getQaUserSelfReflectionFormStatuses() {
+//        if (qaUserSelfReflectionFormStatuses == null) {
+//            qaUserSelfReflectionFormStatuses = Collections.emptyList();
+//        }
         return qaUserSelfReflectionFormStatuses;
     }
 
@@ -110,6 +116,9 @@ public class SelfReflectionFormEntity extends QaBaseEntity {
     }
 
     public List<SelfReflectionReviewEntity> getSelfReflectionReviews() {
+//        if (selfReflectionReviews == null) {
+//            selfReflectionReviews = Collections.emptyList();
+//        }
         return selfReflectionReviews;
     }
 
@@ -118,11 +127,22 @@ public class SelfReflectionFormEntity extends QaBaseEntity {
     }
 
     public List<SelfRatingEntity> getSelfRatings() {
+//        if (selfRatings == null) {
+//            selfRatings = Collections.emptyList();
+//        }
         return selfRatings;
     }
 
     public void setSelfRatings(List<SelfRatingEntity> selfRatings) {
         this.selfRatings = selfRatings;
+    }
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
     @Override

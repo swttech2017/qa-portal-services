@@ -2,7 +2,6 @@ package com.qa.portal.selfreflection.dto;
 
 import com.qa.portal.common.dto.QaBaseDto;
 import com.qa.portal.common.dto.QaUserDto;
-import com.qa.portal.common.persistence.entity.QaUserEntity;
 
 import java.util.Objects;
 

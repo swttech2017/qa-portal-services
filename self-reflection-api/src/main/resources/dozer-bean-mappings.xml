@@ -6,9 +6,14 @@
 
     <configuration>
         <custom-converters> <!-- these are always bi-directional -->
-            <converter type="com.qa.portal.common.util.mapper.converters.SqlTimestampToInstantConverter">
+            <converter type="com.qa.portal.common.util.mapper.converters.SqlTimestampInstantConverter">
                 <class-a>java.sql.Timestamp</class-a>
                 <class-b>java.time.Instant</class-b>
+            </converter>
+
+            <converter type="com.qa.portal.common.util.mapper.converters.LocalDateSqlDateConverter">
+                <class-a>java.time.LocalDate</class-a>
+                <class-b>java.sql.Date</class-b>
             </converter>
         </custom-converters>
     </configuration>

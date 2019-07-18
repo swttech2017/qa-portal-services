@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public abstract class SelfRatingQuestionRepository implements JpaRepository<SelfRatingQuestionEntity, Integer> {
+public interface SelfRatingQuestionRepository extends JpaRepository<SelfRatingQuestionEntity, Integer> {
 }

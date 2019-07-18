@@ -10,7 +10,7 @@ import java.util.Objects;
 public class SelfReflectionStatusEntity extends QaBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_reflection_status_sequence")
-    @SequenceGenerator(name = "self_reflection_status_sequence", sequenceName = "self_reflection_status_sequence")
+    @SequenceGenerator(name = "self_reflection_status_sequence", sequenceName = "training.self_reflection_status_sequence")
     private Integer id;
 
     @Column(name="status_text")

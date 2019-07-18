@@ -12,7 +12,7 @@ import java.util.Objects;
 public class SelfReflectionReviewEntity extends QaBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_reflection_review_sequence")
-    @SequenceGenerator(name = "self_reflection_review_sequence", sequenceName = "self_reflection_review_sequence")
+    @SequenceGenerator(name = "self_reflection_review_sequence", sequenceName = "training.self_reflection_review_sequence")
     private Integer id;
 
     @ManyToOne

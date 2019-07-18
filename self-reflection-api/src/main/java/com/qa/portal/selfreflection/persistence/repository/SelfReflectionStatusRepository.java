@@ -4,6 +4,9 @@ import com.qa.portal.selfreflection.persistence.entity.SelfReflectionStatusEntit
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface SelfReflectionStatusRepository extends JpaRepository<SelfReflectionStatusEntity, Integer> {
+    Optional<SelfReflectionStatusEntity> findByStatusText(String statusText);
 }

@@ -2,7 +2,7 @@ package com.qa.portal.selfreflection.dto;
 
 import com.qa.portal.common.dto.QaUserDto;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,7 +26,9 @@ public class SelfReflectionFormDto {
 
     private String threatsText;
 
-    private Date weekCommencing;
+    private LocalDate weekCommencing;
+
+    private String currentStatus;
 
     public Integer getId() {
         return id;
@@ -76,15 +78,18 @@ public class SelfReflectionFormDto {
         this.threatsText = threatsText;
     }
 
-    public Date getWeekCommencing() {
+    public LocalDate getWeekCommencing() {
         return weekCommencing;
     }
 
-    public void setWeekCommencing(Date weekCommencing) {
+    public void setWeekCommencing(LocalDate weekCommencing) {
         this.weekCommencing = weekCommencing;
     }
 
     public List<SelfReflectionFormStatusDto> getQaUserSelfReflectionFormStatuses() {
+//        if (qaUserSelfReflectionFormStatuses == null) {
+//            qaUserSelfReflectionFormStatuses = Collections.emptyList();
+//        }
         return qaUserSelfReflectionFormStatuses;
     }
 
@@ -93,6 +98,9 @@ public class SelfReflectionFormDto {
     }
 
     public List<SelfReflectionReviewDto> getSelfReflectionReviews() {
+//        if (selfReflectionReviews == null) {
+//            selfReflectionReviews = Collections.emptyList();
+//        }
         return selfReflectionReviews;
     }
 
@@ -101,11 +109,22 @@ public class SelfReflectionFormDto {
     }
 
     public List<SelfRatingDto> getSelfRatings() {
+//        if (selfRatings == null) {
+//            selfRatings = Collections.emptyList();
+//        }
         return selfRatings;
     }
 
     public void setSelfRatings(List<SelfRatingDto> selfRatings) {
         this.selfRatings = selfRatings;
+    }
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
     @Override
@@ -122,21 +141,13 @@ public class SelfReflectionFormDto {
                 Objects.equals(weaknessesText, that.weaknessesText) &&
                 Objects.equals(opportunitiesText, that.opportunitiesText) &&
                 Objects.equals(threatsText, that.threatsText) &&
-                Objects.equals(weekCommencing, that.weekCommencing);
+                Objects.equals(weekCommencing, that.weekCommencing) &&
+                Objects.equals(currentStatus, that.currentStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,
-                qaUser,
-                qaUserSelfReflectionFormStatuses,
-                selfReflectionReviews,
-                selfRatings,
-                strengthsText,
-                weaknessesText,
-                opportunitiesText,
-                threatsText,
-                weekCommencing);
+        return Objects.hash(id, qaUser, qaUserSelfReflectionFormStatuses, selfReflectionReviews, selfRatings, strengthsText, weaknessesText, opportunitiesText, threatsText, weekCommencing, currentStatus);
     }
 
     @Override
@@ -152,6 +163,7 @@ public class SelfReflectionFormDto {
                 ", opportunitiesText='" + opportunitiesText + '\'' +
                 ", threatsText='" + threatsText + '\'' +
                 ", weekCommencing=" + weekCommencing +
+                ", currentStatus='" + currentStatus + '\'' +
                 '}';
     }
 }

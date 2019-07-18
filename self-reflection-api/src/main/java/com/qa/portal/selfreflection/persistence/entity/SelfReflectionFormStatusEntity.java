@@ -13,7 +13,7 @@ public class SelfReflectionFormStatusEntity extends QaBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "qa_user_self_reflection_form_status_sequence")
-    @SequenceGenerator(name = "qa_user_self_reflection_form_status_sequence", sequenceName = "qa_user_self_reflection_form_status_sequence")
+    @SequenceGenerator(name = "qa_user_self_reflection_form_status_sequence", sequenceName = "training.qa_user_self_reflection_form_status_sequence")
     private Integer id;
 
     @ManyToOne

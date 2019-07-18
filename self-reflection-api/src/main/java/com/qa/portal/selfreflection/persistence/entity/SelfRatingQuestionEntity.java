@@ -10,7 +10,7 @@ import java.util.Objects;
 public class SelfRatingQuestionEntity extends QaBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_rating_question_sequence")
-    @SequenceGenerator(name = "self_rating_question_sequence", sequenceName = "self_rating_question_sequence")
+    @SequenceGenerator(name = "self_rating_question_sequence", sequenceName = "training.self_rating_question_sequence")
     private Integer id;
 
     @Column(name = "question_text")
