@@ -6,14 +6,10 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Optional;
 
-public class SqlTimestampToInstantConverter extends DozerConverter<Timestamp, Instant> {
+public class SqlTimestampInstantConverter extends DozerConverter<Timestamp, Instant> {
 
-    public SqlTimestampToInstantConverter() {
+    public SqlTimestampInstantConverter() {
         super(Timestamp.class, Instant.class);
-    }
-
-    private static Instant get() {
-        return null;
     }
 
     @Override
