@@ -1,6 +1,6 @@
-# QA Portal Services
+# QA Portal Services 
 
-## Projects
+## Overview
 
 The projects in this repository provide the business logic, service integration and persistence capabilities of the QA Portal application. The repository is structured as follows
 
