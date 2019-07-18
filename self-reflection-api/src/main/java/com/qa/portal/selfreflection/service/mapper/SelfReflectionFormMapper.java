@@ -7,6 +7,7 @@ import com.qa.portal.common.util.mapper.BaseMapper;
 import com.qa.portal.selfreflection.dto.SelfReflectionFormDto;
 import com.qa.portal.selfreflection.dto.SelfReflectionFormStatusDto;
 import com.qa.portal.selfreflection.persistence.entity.SelfReflectionFormEntity;
+import com.qa.portal.selfreflection.persistence.repository.SelfRatingQuestionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class SelfReflectionFormMapper {
 
     @Autowired
     private BaseMapper baseMapper;
+    
+    @Autowired
+    private SelfRatingQuestionRepository selfRatingQuestionRepository;
 
     @Autowired
     private SelfReflectionFormStatusMapper selfReflectionFormStatusMapper;
@@ -45,9 +49,18 @@ public class SelfReflectionFormMapper {
     public SelfReflectionFormEntity createSelfReflectionFormEntity(SelfReflectionFormDto selfReflectionFormDto, String userName) {
         SelfReflectionFormEntity sre = baseMapper.mapObject(selfReflectionFormDto, SelfReflectionFormEntity.class);
         sre.setQaUser(getQaUser(userName));
+        setSelfRatingQuestionEntities(sre);
         setSelfRatingForeignKeys(sre);
         addSelfReflectionFormStatusEntity(sre, selfReflectionFormDto.getCurrentStatus());
         return sre;
+    }
+
+    private void setSelfRatingQuestionEntities(SelfReflectionFormEntity sre) {
+        sre.getSelfRatings().stream()
+                .forEach(sr -> {
+                    sr.setSelfRatingQuestion(selfRatingQuestionRepository.findById(sr.getSelfRatingQuestion().getId())
+                            .orElseThrow(() -> new QaResourceNotFoundException("Cannot find self rating question")));
+                });
     }
 
     private void addSelfReflectionFormStatusEntity(SelfReflectionFormEntity sre, String status) {

@@ -9,7 +9,9 @@ public class DepartmentRoleApplicationEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "dept_role_app_sequence", sequenceName = "dept_role_app_sequence")
+    @SequenceGenerator(name = "dept_role_app_sequence",
+            sequenceName = "training.dept_role_app_sequence",
+            allocationSize=1)
     private Integer id;
 
     @ManyToOne

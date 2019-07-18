@@ -20,35 +20,30 @@ public class QaPortalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private final Logger LOGGER = LoggerFactory.getLogger(QaPortalExceptionHandler.class);
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(OptimisticLockException.class)
     public ResponseEntity<?> handle(OptimisticLockException e, WebRequest request) {
         LOGGER.error("Optimistic Lock Exception handler " + e.getMessage(), e);
-        return handleExceptionInternal(e, "Action failed as other user is updating the same record. Please retry", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return handleExceptionInternal(e, "Action failed as another user is updating the same record. Please retry", new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(QaResourceNotFoundException.class)
     public ResponseEntity<?> handle(QaResourceNotFoundException e, WebRequest request) {
         LOGGER.error("Not Found QA Exception handler " + e.getMessage(), e);
         return handleExceptionInternal(e, getMessage(e, request), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(QaPortalSevereException.class)
     public ResponseEntity<?> handle(QaPortalSevereException e,  WebRequest request) {
         LOGGER.error("Internal Server Error QA Exception handler " + e.getMessage(), e);
         return handleExceptionInternal(e, getMessage(e, request),  new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(QaPortalBusinessException.class)
     public ResponseEntity<?> handle(QaPortalBusinessException e,  WebRequest request) {
         LOGGER.error("Bad Request QA Exception handler " + e.getMessage(), e);
         return handleExceptionInternal(e, getMessage(e, request),  new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<?> handle(RuntimeException e,  WebRequest request) {
         LOGGER.error("Runtime Exception handler " + e.getMessage(), e);

@@ -21,7 +21,7 @@ public class BaseMapper {
         return mapper.map(qaUserDto, QaUserEntity.class);
     }
 
-    public QaUserDto mapToQaUserEntity(QaUserEntity qaUserEntity) {
+    public QaUserDto mapToQaUserDto(QaUserEntity qaUserEntity) {
         return mapper.map(qaUserEntity, QaUserDto.class);
     }
 }

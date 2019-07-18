@@ -9,7 +9,9 @@ import java.util.Objects;
 public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "application_sequence", sequenceName = "application_sequence")
+    @SequenceGenerator(name = "application_sequence",
+            sequenceName = "training.application_sequence",
+            allocationSize=1)
     private Integer id;
 
     @Column(name="name")

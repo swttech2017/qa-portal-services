@@ -10,7 +10,9 @@ import java.util.StringJoiner;
 public class DepartmentRoleEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "dept_role_sequence", sequenceName = "dept_role_sequence")
+    @SequenceGenerator(name = "dept_role_sequence",
+            sequenceName = "training.dept_role_sequence",
+            allocationSize=1)
     private Integer id;
 
     @ManyToOne

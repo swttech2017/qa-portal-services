@@ -33,7 +33,6 @@ public class SelfReflectionsController {
 
     @PostMapping(SELF_REFLECTION_API_URL)
     public ResponseEntity<SelfReflectionFormDto> createSelfReflectionForm(@RequestBody SelfReflectionFormDto selfReflectionFormDto) {
-        LOGGER.info("Request is " + selfReflectionFormDto);
         return ResponseEntity.ok(selfReflectionService.createSelfReflection(selfReflectionFormDto, securityContext.getUserName()));
     }
 }

@@ -8,7 +8,9 @@ import java.util.Objects;
 public class MenuItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "menu_item_sequence", sequenceName = "menu_item_sequence")
+    @SequenceGenerator(name = "menu_item_sequence",
+            sequenceName = "training.menu_item_sequence",
+            allocationSize=1)
     private Integer id;
 
     @Column(name = "name")
