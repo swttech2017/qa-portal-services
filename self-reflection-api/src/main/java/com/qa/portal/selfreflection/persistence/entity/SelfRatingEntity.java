@@ -11,8 +11,11 @@ import java.util.Objects;
 public class SelfRatingEntity extends QaBaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_rating_sequence")
-    @SequenceGenerator(name = "self_rating_sequence", sequenceName = "training.self_rating_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "self_rating_sequence")
+    @SequenceGenerator(name = "self_rating_sequence",
+            sequenceName = "training.self_rating_sequence",
+            allocationSize=1)
     private Integer id;
 
     @ManyToOne

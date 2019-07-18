@@ -11,10 +11,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.persistence.OptimisticLockException;
+
+// TODO - Replace hard coded messages
+
 @ControllerAdvice
 public class QaPortalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private final Logger LOGGER = LoggerFactory.getLogger(QaPortalExceptionHandler.class);
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(OptimisticLockException.class)
+    public ResponseEntity<?> handle(OptimisticLockException e, WebRequest request) {
+        LOGGER.error("Optimistic Lock Exception handler " + e.getMessage(), e);
+        return handleExceptionInternal(e, "Action failed as other user is updating the same record. Please retry", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(QaResourceNotFoundException.class)

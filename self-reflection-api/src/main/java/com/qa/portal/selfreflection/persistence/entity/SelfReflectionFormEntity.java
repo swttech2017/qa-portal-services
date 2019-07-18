@@ -13,8 +13,11 @@ import java.util.Objects;
 public class SelfReflectionFormEntity extends QaBaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "qa_user_self_reflection_form_sequence")
-    @SequenceGenerator(name = "qa_user_self_reflection_form_sequence", sequenceName = "training.qa_user_self_reflection_form_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "qa_user_self_reflection_form_sequence")
+    @SequenceGenerator(name = "qa_user_self_reflection_form_sequence",
+            sequenceName = "training.qa_user_self_reflection_form_sequence",
+            allocationSize=1)
     private Integer id;
 
     @ManyToOne()

@@ -3,12 +3,12 @@ package com.qa.portal.common.persistence.entity;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
-import org.keycloak.representations.AccessToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
+import javax.persistence.Version;
 import java.sql.Timestamp;
 
 @MappedSuperclass
@@ -20,6 +20,9 @@ public class QaBaseEntity {
 
     @Column(name="last_updated_by")
     protected String lastUpdatedBy;
+
+    @Version
+    protected Integer version;
 
     public Timestamp getLastUpdatedTimestamp() {
         return lastUpdatedTimestamp;
@@ -35,6 +38,14 @@ public class QaBaseEntity {
 
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @PrePersist

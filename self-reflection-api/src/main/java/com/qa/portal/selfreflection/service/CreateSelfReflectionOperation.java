@@ -25,7 +25,7 @@ public class CreateSelfReflectionOperation {
     private SelfReflectionServiceMapper selfReflectionServiceMapper;
 
     public SelfReflectionFormDto createSelfReflection(SelfReflectionFormDto selfReflectionFormDto, String userName) {
-        validateSelfReflection(selfReflectionFormDto);
+//        validateSelfReflection(selfReflectionFormDto);
         selfReflectionFormRepository.save(selfReflectionServiceMapper.createSelfReflectionFormEntity(selfReflectionFormDto, userName));
         return selfReflectionFormDto;
     }

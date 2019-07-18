@@ -11,8 +11,11 @@ import java.util.Objects;
 @Table(schema = "training", name="self_reflection_review")
 public class SelfReflectionReviewEntity extends QaBaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_reflection_review_sequence")
-    @SequenceGenerator(name = "self_reflection_review_sequence", sequenceName = "training.self_reflection_review_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "self_reflection_review_sequence")
+    @SequenceGenerator(name = "self_reflection_review_sequence",
+            sequenceName = "training.self_reflection_review_sequence",
+            allocationSize=1)
     private Integer id;
 
     @ManyToOne

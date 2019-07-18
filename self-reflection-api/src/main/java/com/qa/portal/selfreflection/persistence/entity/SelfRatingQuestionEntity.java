@@ -9,8 +9,11 @@ import java.util.Objects;
 @Table(schema="training", name="self_rating_question")
 public class SelfRatingQuestionEntity extends QaBaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "self_rating_question_sequence")
-    @SequenceGenerator(name = "self_rating_question_sequence", sequenceName = "training.self_rating_question_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "self_rating_question_sequence")
+    @SequenceGenerator(name = "self_rating_question_sequence",
+            sequenceName = "training.self_rating_question_sequence",
+            allocationSize=1)
     private Integer id;
 
     @Column(name = "question_text")
