@@ -1,5 +1,3 @@
-
-
 # QA Portal Services
 
 ## Projects
@@ -16,19 +14,19 @@ b) A number of Spring Boot micro-service projects that make use of the api-commo
 
 ### Common Library
 
-The api-common project contains the code that is likely to be used by all the QA Portal micro-service projects, providing the following common functionality
+The api-common project should be used by all the QA Portal micro-service projects, and provides the following common functionality
 
 **A security configuration and implementation (Keycloak)**
 
-Keycloak (https://www.keycloak.org/documentation.html), has been selected to provide the authentication mechanism for the QA Portal application. Keycloak is an identity and access management provider with client adapter libraries our applications can use to integrate with the Keycloak provider. For our Spring Boot micro-services this requires a Spring security configuration to integrate with keycloak. This is achieved by the following
+Keycloak (https://www.keycloak.org/documentation.html) has been selected to provide the authentication mechanism for the QA Portal application. Keycloak is an identity and access management provider with client adapter libraries our applications can use to integrate with the Keycloak provider. For our Spring Boot micro-services this requires a Spring security configuration to integrate with keycloak. This is achieved as follows:
 
-a) Including the keycloak spring security dependency in the pom.xml file of the api-common project (and each of the Spring Boot micro-service projects).
+a) Include a keycloak spring security dependency in the pom.xml file of the api-common project (and each of the Spring Boot micro-service projects).
 
-b) Create a Keycloak implementation of Spring Security Config (in api-common project). This is provided in the com.qa.portal.common.config.SecurityConfig class. The KeyclockConfigResolver injected into this class returns a keycloak.json file. 
+b) Create a Keycloak implementation of Spring Security Config (in api-common project). This is provided by the com.qa.portal.common.config.SecurityConfig class. The KeyclockConfigResolver injected into SecurityConfig returns a keycloak.json file. 
 
-c) keycloak,json file provided in the resources folder of each Spring Boot micro-service project. This specifies the configuration for the Keycloak adapter to connect to the Keycloak provider. 
+c) keycloak,json file added to the resources folder of each Spring Boot micro-service project. This specifies the configuration for the Keycloak adapter to connect to the Keycloak provider. 
 
-This configuration can be obtained from the keycloak providers admin console as follows - 
+This keycloak.json configuration can be obtained from the keycloak providers admin console as follows - 
 
 i) Log into the keycloak admin console (http://localhost:8080/auth/admin/)
 
@@ -108,13 +106,89 @@ c) Each Spring Boot micro-service project must have a dependency in their pom.xm
 
 ### Adding a new Spring Boot Project
 
+**Main Tasks**
 
+1. Create (or copy existing) Spring boot maven project (Responsibility - Lead Dev)
 
-### Developing a new Spring Boot micro-service
+2. In pom.xml add dependencies (Responsibility - Lead Dev)
 
+   keycloak spring security adapter
 
+   api-common
 
+   spring boot jpa
 
+   spring boot test
+
+   postgresql
+
+3. Add spring boot maven plugin to pom.xml build plugins. (Responsibility - Lead Dev)
+
+4. Add standard folder structure under com.qa.portal.projname (Responsibility - Lead Dev)
+
+   config
+
+   dto
+
+   persistence
+
+   persistence.entity
+
+   persistence.repository
+
+   rest 
+
+   service
+
+   service.mapper
+
+   util
+
+5. Add ProjNameApplication java file under com.qa.portal  (Responsibility - Lead Dev)
+
+6. Add ProjNameConstants java file under com.qa.portal.projname (Responsibility - Lead Dev)
+
+7. Add keycloak.json file to resources folder  (Responsibility - Lead Dev)
+
+8. Add configuration to application.yml file to resources folder  (Responsibility - Lead Dev)
+
+9. Add dozer mapping file to resources folder  (Responsibility - Lead Dev)
+
+10. Add new project as a module to the parent pom.xml in services folder  (Responsibility - Lead Dev)
+
+    
+
+### Developing a new Spring Boot Endpoint
+
+**Main Tasks**
+
+1. Define REST interface (Responsibility - Lead Dev / Dev)
+
+2. Define Persistence Model (Responsibility - Tech Lead / Dev)
+
+3. Create or update DTOs in package com.qa.portal.projname.dto (Responsibility - Dev)
+
+4. (Optional) Create Junits for new or updated DTOs (Responsibility - Dev)
+
+5. Create or update entities in package com.qa.portal.projname.persistence.entity (Responsibility - Dev)
+
+6. Create or update repository interfaces in package com.qa.portal.projname.persistence.repository (Responsibility -  Dev)
+
+7. (Optional) Create Junits for (new or amended) entities (Responsibility - Dev)
+
+8. Create or update mappers to map entities / DTOs (Responsibility - Dev)
+
+9. Create Junit tests for (new or amended) mapper classes (Responsibility - Dev)
+
+10. Create or update service class in package com.qa.portal.projname.service (Responsibility - Dev)
+
+11. Create Junit tests for (new or amended) service class (Responsibility - Dev)
+
+12. Create or amend RestController class in com.qa.portal.projname.rest package (Responsibility - Dev)
+
+13. Create an Integration test to invoke RestController (Responsibility - Dev)
+
+    
 
 ### Building and Running Services
 
