@@ -110,7 +110,13 @@ c) Each Spring Boot micro-service project must have a dependency in their pom.xm
 
 **WARNING - All classes managed by Springs IOC container MUST be stateless (i.e. they cannot hold request specific (mutable) state. Immutable state available for the lifetime of the application is OK and can help performance when caching data).**
 
+#### core-api
 
+ToDo
+
+#### self-reflection-api
+
+ToDo
 
 ### Adding a new Spring Boot Project
 
@@ -200,14 +206,14 @@ c) Each Spring Boot micro-service project must have a dependency in their pom.xm
 
     
 
-### Building and Running Services
+## Building and Running Services
 
-#### Pre-Requisites
+### Pre-Requisites
 
 a) A local keycloak instance and Postgres DB has been installed and configured. See instructions in 
 https://github.com/swttech2017/qa-portal-infra/blob/master/README.md
 
-#### Build and Run Core Services
+### Build and Run Core Services
 
 a) Clone the qa-portal-services repo using command
 
